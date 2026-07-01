@@ -1,45 +1,15 @@
-# TITUS AI Backend - Python Dependencies
-# All package versions are pinned to keep development and production consistent.
-
-# ----------------------------
-# FastAPI & Server
-# ----------------------------
 fastapi==0.111.0
 uvicorn[standard]==0.29.0
-
-# ----------------------------
-# Database
-# ----------------------------
 sqlalchemy==2.0.30
 alembic==1.13.1
 psycopg2-binary==2.9.9
-
-# ----------------------------
-# Validation & Settings
-# ----------------------------
 pydantic==2.7.1
 pydantic-settings==2.2.1
-
-# ----------------------------
-# Authentication & Security
-# ----------------------------
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
-
-# Keep bcrypt at 4.0.1 because newer versions
-# don't work properly with passlib 1.7.4.
-bcrypt==4.0.1
-
-# Needed for file uploads (Excel, CSV, forms)
 python-multipart==0.0.9
-
-# ----------------------------
-# Data Processing
-# ----------------------------
 pandas==2.2.2
 openpyxl==3.1.2
-
-# ----------------------------
-# HTTP Client
-# ----------------------------
+pytest==8.2.0
+pytest-asyncio==0.23.6
 httpx==0.27.0
