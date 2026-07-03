@@ -1,0 +1,82 @@
+[project]
+name = "titus-backend"
+version = "1.0.0"
+description = "TITUS AI School Chatbot — Backend API"
+requires-python = ">=3.11"
+
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88                    
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes (unused imports, undefined vars)
+    "I",    # isort (import ordering)
+    "B",    # bugbear (common bugs and design issues)
+    "C4",   # comprehension improvements
+    "UP",   # pyupgrade (use modern Python syntax)
+    "N",    # naming conventions (PEP 8)
+    "S",    # bandit security checks
+    "ANN",  # type annotation enforcement
+]
+ignore = [
+    "ANN101",   # Don't require type for `self`
+    "ANN102",   # Don't require type for `cls`
+    "S101",     # Allow assert in tests
+    "B008",     # Allow function calls in default args (FastAPI Depends() needs this)
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN", "S"]
+"alembic/*" = ["ANN", "E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true       
+plugins = ["sqlalchemy.ext.mypy.plugin"]
+
+[[tool.mypy.overrides]]
+module = "alembic.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+asyncio_mode = "auto"
+
+addopts = "-v --strict-markers -p no:warnings"
+
+markers = [
+    "unit: fast isolated tests with no DB or network",
+    "integration: tests that require a real DB connection",
+    "slow: tests that take more than 1 second",
+]
+
+
+[tool.coverage.run]
+source = ["app"]
+omit = [
+    "app/__init__.py",
+    "alembic/*",
+    "tests/*",
+]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = false

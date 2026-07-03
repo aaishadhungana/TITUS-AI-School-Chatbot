@@ -1,0 +1,70 @@
+# ─── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+venv/
+env/
+.venv/
+.env/
+ENV/
+env.bak/
+venv.bak/
+.virtualenv/
+
+# ─── Testing & Coverage ──────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+*.cover
+nosetests.xml
+test-results/
+
+# ─── Type Checkers ───────────────────────────────────────────────────────────
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# ─── IDEs & Editors ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+logs/
+*.log
+*.log.*
+
+# ─── Uploads & Temp Files ────────────────────────────────────────────────────
+uploads/
+temp/
+tmp/
+
+# ─── Alembic ─────────────────────────────────────────────────────────────────
+alembic/versions/__pycache__/
+
+# ─── Docker ──────────────────────────────────────────────────────────────────
+docker-compose.override.yml
